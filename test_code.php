@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[อรรถพล สีชา]โปรแกรมเมอร์</title>
+</head>
+<body>
+    <form method="post">
+        <?php 
+echo "1.  บริษัท Tesla ขายรถ Tesla มีรถจำนวนทั้งหมด 3 รุ่น (a,b,c) ในปีที่ผ่านมาขายไปได้ดังนี้ <br>
+รุ่น a ขายได้  ";?>
+        <input type="number" name="a" maxlength="2" style="width:60px;" /> <?php echo " คัน
+<br>รุ่น b ขายได้  ";?>
+        <input type="number" name="b" maxlength="2" style="width:60px;" /> <?php echo " คัน<br>
+รุ่น c ขายได้  ";?>
+        <input type="number" name="c" maxlength="2" style="width:60px;" /> <?php echo " คัน<br>
+ 	จงหาว่าปีที่ผ่านมาขายแต่ละรุ่นไปเป็นจำนวนกี่ % จากยอดขายรถทั้งหมด
+";
+?>
+        <br>
+        <input type="submit" name="sum" value="คำนวณ">
+        <hr>
+    </form>
+    <?php
+if(isset($_POST['sum'])){
+    $tesla[] = array(
+        'a' => $_POST['a'],
+        'b' =>  $_POST['b'],
+        'c' => $_POST['c']);
+}else{
+    $tesla[] = array(
+        'a' => '1200',
+        'b' =>  '95',
+        'c' => '115');
+}
+echo "รุ่น a\n".number_format($tesla[0]['a'])."คัน\n";
+echo "<br>รุ่น b\n".number_format($tesla[0]['b'])."คัน\n";
+echo "<br>รุ่น c \n".number_format($tesla[0]['c'])."คัน\n<br>";
+$tesla_sum = $tesla[0]['a'] + $tesla[0]['b'] + $tesla[0]['c'];
+echo "<br>วิธีทำ";
+echo "<br/>รวม\n".number_format($tesla_sum)."\nคัน\n หาร 100 เพื่อหาค่าอัตราส่วนใน 1 % จะได้ = ".number_format($tesla_sum/100)."\nคันต่อ 1%<br>";
+echo "<br>หมายความว่า รุ่น a ".number_format($tesla[0]['a'])." คัน ยอดขายอยู่ที่\n".number_format($tesla[0]['a']/($tesla_sum/100))."%คัน";
+echo "<br>รุ่น b ".number_format($tesla[0]['b'])." คัน ยอดขายอยู่ที่\n".number_format($tesla[0]['b']/($tesla_sum/100))."%คัน";
+echo "<br>และ รุ่น a ".number_format($tesla[0]['c'])." คัน ยอดขายอยู่ที่\n".number_format($tesla[0]['c']/($tesla_sum/100))."%คัน";
+?>
+
+</body>
+
+</html>
