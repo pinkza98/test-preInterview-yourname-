@@ -45,6 +45,34 @@ echo "<br>หมายความว่า รุ่น a ".number_format($tesl
 echo "<br>รุ่น b ".number_format($tesla[0]['b'])." คัน ยอดขายอยู่ที่\n".number_format($tesla[0]['b']/($tesla_sum/100))."%คัน";
 echo "<br>และ รุ่น a ".number_format($tesla[0]['c'])." คัน ยอดขายอยู่ที่\n".number_format($tesla[0]['c']/($tesla_sum/100))."%คัน";
 ?>
+<hr>
+5. จงเขียนโปรแกรมเพื่อหาคำตอบของจำนวนบวกต่อเนื่องกันตั้งแต่ n ถึง m โดยโจทย์จะกำหนดตัวแปร n และ m มาให้<br>
+ตัวอย่างเช่น<br>
+ 
+n =1,m =5 คือการหาผลรวมของ 1, 2, 3, 4,5  ผลลัพธ์คือ 15 <br>
+n=3, m=5 คือการหาผลรวมของ 3, 4,5  ผลลัพธ์เท่ากับ 12  จงเขียนโปรแกรมเพื่อหาผลลัพธ์ต่อไปนี้<br>
+c.	n=1 		m =99<br>
+d.	n = 446 	m = 779<br>
+e.	n=3 		m=1,099<br>
+f.	n=34		 m= 1,000,000<br>
+
+    <form method="post">
+        <input type="number" name="n"maxlength="2" style="width:100px;" placeholder="กรอกค่า n" required/ ><br>
+        <input type="number" name="m"maxlength="2" style="width:100px;" placeholder="กรอกค่า m"  required /><br>
+        <input type="submit" name="sum_2" value="คำนวณผลบวกอนุกรมเลขคณิต
+">
+    </form>
+<?php 
+    if(isset($_POST['sum_2'])){
+     $n = $_POST['n'];
+     $m = $_POST['m'];
+        if($n >= $m){
+            echo "<script>alert('ผลลัพธ์ไม่สามารถแสดงค่า n น้อยกว่า m หรือเท่ากันได้');</script>";
+        }else{
+         echo "ผลลัพธ์คือ\n".number_format(($n+$m)*((($m-$n)+1)/2));
+        }
+    }
+?>
 
 </body>
 
